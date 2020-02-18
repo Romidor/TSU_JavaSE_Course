@@ -1,7 +1,6 @@
 package local.leo.study.javase.lab2.part4;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class RandomNumbers {
 
@@ -11,15 +10,16 @@ public class RandomNumbers {
         int[] randomNumbers = new int[100];
         int div3Count = 0;
         int primeNumbersCount = 0;
-        Random random = new Random(100);
 
-        //числа, кратные трем
         for (int i = 0; i < randomNumbers.length; i++) {
-            randomNumbers[i] = random.nextInt(K + 1);
+            //случайное число в диапазоне [0;K]
+            randomNumbers[i] = (int) (Math.random() * (K + 1));
+            //число кратно 3?
             if (randomNumbers[i] % 3 == 0) {
                 div3Count++;
             }
 
+            //является ли число простым?
             boolean s = true;
             for (int j = 2; j < randomNumbers[i]; j++) {
                 if (randomNumbers[i] % j == 0) {

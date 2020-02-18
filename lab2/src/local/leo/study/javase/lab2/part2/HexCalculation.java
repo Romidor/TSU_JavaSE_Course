@@ -38,33 +38,54 @@ public class HexCalculation {
         System.out.printf("a-- = %X\n", a - 1);
     }
 
-    public void объединение(long a, long b) {
+    public void bitwiseOr(long a, long b) {
         System.out.println("a:\t" + Long.toBinaryString(a)
                 + "\nb:\t"
                 + Long.toBinaryString(b)
-                + "\n=\t"
+                + "\n|\t"
                 + Long.toBinaryString(a | b));
     }
 
-    public void пересечение(int a, int b) {
+    public void bitwiseAnd(int a, int b) {
         System.out.println("a:\t" + Integer.toBinaryString(a)
                 + "\nb:\t"
                 + Integer.toBinaryString(b)
-                + "\n=\t"
+                + "\n&\t"
                 + Integer.toBinaryString(a & b));
     }
 
-    public void крышечка(int a, int b) {
+    public void bitwiseXor(int a, int b) {
         System.out.println("a:\t" + Integer.toBinaryString(a)
                 + "\nb:\t"
                 + Integer.toBinaryString(b)
-                + "\n=\t"
+                + "\n^\t"
                 + Integer.toBinaryString(a ^ b));
     }
 
+    public void bitwiseComplement(int a) {
+        System.out.println("a:\t" + Integer.toBinaryString(a)
+                + "\n~:\t" + Integer.toBinaryString(~a));
+    }
+
+    public void leftBitShift(int a, int count) {
+        System.out.println("a = " + Integer.toBinaryString(a));
+        int res = a << count;
+        System.out.println("a << " + count
+                + " = " + Integer.toBinaryString(res)
+                + ". a = " + res);
+    }
+
+    public void rightBitShift(int a, int count) {
+        System.out.println("a = " + Integer.toBinaryString(a));
+        int res = a >> count;
+        System.out.println("a >> " + count
+                + " = " + Integer.toBinaryString(res)
+                + ". a = " + res);
+    }
+
     public static void main(String[] args) {
-        int a = 0x34F5B0;
-        int b = 0x7D3881;
+        int a = 0x7D3881;
+        int b = 0x69EB60;
         System.out.printf("a = %X = %d\nb = %X = %d\n", a, a, b, b);
         HexCalculation calc = new HexCalculation();
         calc.sum(a, b);
@@ -75,8 +96,11 @@ public class HexCalculation {
         calc.postfixIncrement(b);
         calc.prefixDecrement(b);
         calc.postfixDecrement(b);
-        calc.объединение((long) a, (long) b);
-        calc.пересечение(a, b);
-        calc.крышечка(a, b);
+        calc.bitwiseOr((long) a, (long) b);
+        calc.bitwiseAnd(a, b);
+        calc.bitwiseXor(a, b);
+        calc.bitwiseComplement(a);
+        calc.leftBitShift(b, 1);
+        calc.rightBitShift(a, 2);
     }
 }
