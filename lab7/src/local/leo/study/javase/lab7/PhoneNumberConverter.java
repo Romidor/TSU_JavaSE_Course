@@ -1,4 +1,4 @@
-package local.leo.study.javase;
+package local.leo.study.javase.lab7;
 
 
 public class PhoneNumberConverter {
